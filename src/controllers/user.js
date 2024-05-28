@@ -82,3 +82,17 @@ export const getDetailUserById = async (req, res, next) => {
     next(error)
   }
 };
+export const getAll = async (req, res, next) => {
+  try {
+    const allUser = await User.find({});
+    if (!allUser) {
+      throw new ApiError(StatusCodes.NOT_FOUND, "No user found!");
+    }
+    return res.status(StatusCodes.OK).json({
+      allUser,
+      message: "Success",
+    });
+  } catch (error) {
+    next(error)
+  }
+};
