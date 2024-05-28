@@ -2,7 +2,7 @@
 import Joi from 'joi'
 
 const userValidate = Joi.object({
-  username: Joi.string().required().min(6).max(255).label('name').messages({
+  username: Joi.string().required().min(2).max(255).label('name').messages({
     'string.empty': `{{ #label }} is 'required'`
   }),
   email: Joi.string().email().required().label('email').messages({
